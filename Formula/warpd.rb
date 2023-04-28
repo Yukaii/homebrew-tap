@@ -20,14 +20,14 @@ class Warpd < Formula
       end
       (prefix/"Library/LaunchAgents").install "Library/LaunchAgents/com.warpd.warpd.plist"
     end
-  
-    plist_options manual: "warpd"
-  
-    def plist
-      prefix/"Library/LaunchAgents/com.warpd.warpd.plist"
+    
+    service do
+        run [opt_bin/"warpd", "-f"]
+        keep_alive true
+        process_type :interactive
     end
-  
+
     test do
-      system "#{bin}/warpd", "--version"
+        system "#{bin}/warpd", "--version"
     end
   end
