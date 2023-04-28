@@ -15,46 +15,19 @@ class Warpd < Formula
         bin.install "warpd"
         man1.install "warpd.1"
       else
-        bin.install "warpd"
-        man1.install "warpd.1"
+        bin.install "usr/local/bin/warpd"
+        man1.install "usr/local/share/man/man1/warpd.1.gz"
       end
-      plist_path.write startup_plist
-      prefix.install_symlink plist_path => "#{plist_name}.plist"
+      (prefix/"Library/LaunchAgents").install "Library/LaunchAgents/com.warpd.warpd.plist"
     end
   
     plist_options manual: "warpd"
   
-    def plist_name
-      "com.warpd.warpd"
-    end
-  
-    def plist_path
-      prefix/"#{plist_name}.plist"
-    end
-  
-    def startup_plist
-      <<~EOS
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/warpd</string>
-          </array>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-        </plist>
-      EOS
+    def plist
+      prefix/"Library/LaunchAgents/com.warpd.warpd.plist"
     end
   
     test do
       system "#{bin}/warpd", "--version"
     end
   end
-  
