@@ -10,15 +10,16 @@ class Warpd < Formula
     depends_on xcode: :build if build.head?
   
     def install
-    if build.head?
-        system "make"
-        bin.install "bin/warpd"
-        man1.install "files/warpd.1.gz"
-        (prefix/"Library/LaunchAgents").install "Library/LaunchAgents/com.warpd.warpd.plist"
-    else
-        bin.install "usr/local/bin/warpd"
-        man1.install "usr/local/share/man/man1/warpd.1.gz"
-        (prefix/"Library/LaunchAgents").install "files/com.warpd.warpd.plist"
+        if build.head?
+            system "make"
+            bin.install "bin/warpd"
+            man1.install "files/warpd.1.gz"
+            (prefix/"Library/LaunchAgents").install "Library/LaunchAgents/com.warpd.warpd.plist"
+        else
+            bin.install "usr/local/bin/warpd"
+            man1.install "usr/local/share/man/man1/warpd.1.gz"
+            (prefix/"Library/LaunchAgents").install "files/com.warpd.warpd.plist"
+        end
     end
     
     service do
