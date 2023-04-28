@@ -12,8 +12,7 @@ class Warpd < Formula
     def install
     if build.head?
         system "make"
-        system "make", "man"
-        bin.install "warpd"
+        bin.install "bin/warpd"
         man1.install "files/warpd.1.gz"
     else
         bin.install "usr/local/bin/warpd"
