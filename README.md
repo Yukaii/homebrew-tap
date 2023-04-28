@@ -1,4 +1,4 @@
-# My homebrew-tap
+# My homebrew taps
 
 ```bash
 brew tap Yukaii/tap
