@@ -8,7 +8,7 @@ brew tap Yukaii/tap
 
 ### [`warpd`](https://github.com/rvaiya/warpd)
 
-Co-create with [GPT4-chan](https://shareg.pt/dfOdw4J)
+Co-create with [GPT4-chan](https://shareg.pt/r8Sd126)
 
 ```bash
 brew install warpd
