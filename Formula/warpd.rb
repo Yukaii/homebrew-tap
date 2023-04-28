@@ -14,11 +14,11 @@ class Warpd < Formula
         system "make"
         bin.install "bin/warpd"
         man1.install "files/warpd.1.gz"
+        (prefix/"Library/LaunchAgents").install "Library/LaunchAgents/com.warpd.warpd.plist"
     else
         bin.install "usr/local/bin/warpd"
         man1.install "usr/local/share/man/man1/warpd.1.gz"
-      end
-      (prefix/"Library/LaunchAgents").install "Library/LaunchAgents/com.warpd.warpd.plist"
+        (prefix/"Library/LaunchAgents").install "files/com.warpd.warpd.plist"
     end
     
     service do
