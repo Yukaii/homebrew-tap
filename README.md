@@ -15,3 +15,8 @@ brew install warpd
 brew services start warpd
 ```
 
+### [`simple completion language server`](https://github.com/estin/simple-completion-language-server)
+
+```bash
+brew install --head simple-complection-language-server
+```
