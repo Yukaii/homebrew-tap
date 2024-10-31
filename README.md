@@ -4,7 +4,7 @@
 brew tap Yukaii/tap
 ```
 
-## Available taps
+## Available formula
 
 ### [`warpd`](https://github.com/rvaiya/warpd)
 
@@ -19,4 +19,10 @@ brew services start warpd
 
 ```bash
 brew install --head simple-complection-language-server
+```
+
+### [`justfont 精靈文 Elffont`](https://github.com/justfont/Elffont)
+
+```bash
+brew install font-elffont
 ```
