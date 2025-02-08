@@ -26,3 +26,9 @@ brew install --head simple-complection-language-server
 ```bash
 brew install font-elffont
 ```
+
+### [`gitlinker`](https://github.com/Yukaii/gitlinker.cr)
+
+```bash
+brew install --head gitlinker
+```
