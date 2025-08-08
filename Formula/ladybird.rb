@@ -17,19 +17,28 @@ class Ladybird < Formula
   depends_on 'python@3.12' => :build
 
   def install
-    ENV["CC"] = Formula["llvm"].opt_bin/"clang"
-    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+    ENV['CC'] = Formula['llvm'].opt_bin / 'clang'
+    ENV['CXX'] = Formula['llvm'].opt_bin / 'clang++'
 
-    system "python3", "./Meta/ladybird.py", "build"
+    system 'python3', './Meta/ladybird.py', 'build'
 
     # Replace build-time lib symlink with a real copy for packaging
-    app_contents = "Build/release/bin/Ladybird.app/Contents"
+    app_contents = 'Build/release/bin/Ladybird.app/Contents'
     rm_rf "#{app_contents}/lib"
-    cp_r "Build/release/lib", app_contents
+    cp_r 'Build/release/lib', app_contents
 
-    app_path = "Build/release/bin/Ladybird.app"
+    # Ensure the app and helpers can resolve @rpath to Contents/lib
+    macos_dir = "#{app_contents}/MacOS"
+    %w[Ladybird ImageDecoder RequestServer WebContent WebWorker WebDriver].each do |exe|
+      exe_path = File.join(macos_dir, exe)
+      next unless File.exist?(exe_path)
+
+      system 'install_name_tool', '-add_rpath', '@executable_path/../lib', exe_path
+    end
+
+    app_path = 'Build/release/bin/Ladybird.app'
     prefix.install app_path
-    bin.install_symlink "#{prefix}/Ladybird.app/Contents/MacOS/Ladybird" => "ladybird"
+    bin.install_symlink "#{prefix}/Ladybird.app/Contents/MacOS/Ladybird" => 'ladybird'
   end
 
   def caveats
@@ -40,6 +49,6 @@ class Ladybird < Formula
   end
 
   test do
-    assert_predicate prefix/"Ladybird.app", :exist?
+    assert_predicate prefix / 'Ladybird.app', :exist?
   end
 end
