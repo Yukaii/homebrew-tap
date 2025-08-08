@@ -27,6 +27,11 @@ class Ladybird < Formula
     rm_rf "#{app_contents}/lib"
     cp_r 'Build/release/lib', app_contents
 
+    # Also vendor third-party dylibs from vcpkg into the bundle
+    Dir.glob('Build/vcpkg/installed/*/lib/*.dylib').each do |dylib|
+      cp dylib, "#{app_contents}/lib"
+    end
+
     # Ensure the app and helpers can resolve @rpath to Contents/lib
     macos_dir = "#{app_contents}/MacOS"
     %w[Ladybird ImageDecoder RequestServer WebContent WebWorker WebDriver].each do |exe|
