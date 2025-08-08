@@ -27,9 +27,18 @@ class Ladybird < Formula
     rm_rf "#{app_contents}/lib"
     cp_r 'Build/release/lib', app_contents
 
-    # Also vendor third-party dylibs from vcpkg into the bundle
-    Dir.glob('Build/vcpkg/installed/*/lib/*.dylib').each do |dylib|
+    # Also vendor third-party dylibs from vcpkg into the bundle (cover lib and lib64, recurse)
+    Dir.glob('Build/vcpkg/installed/*/{lib,lib64}/**/*.dylib').each do |dylib|
       cp dylib, "#{app_contents}/lib"
+    rescue StandardError => e
+      opoo "Failed to copy #{dylib}: #{e}"
+    end
+
+    # Add rpath hints to all bundled dylibs so they can find siblings
+    Dir.glob("#{app_contents}/lib/*.dylib").each do |dylib|
+      system 'install_name_tool', '-add_rpath', '@loader_path', dylib
+      system 'install_name_tool', '-add_rpath', '@loader_path/..', dylib
+      system 'install_name_tool', '-add_rpath', '@executable_path/../lib', dylib
     end
 
     # Ensure the app and helpers can resolve @rpath to Contents/lib
