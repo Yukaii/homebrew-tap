@@ -1,7 +1,7 @@
 class Warpd < Formula
   desc 'A modal keyboard driven interface for mouse manipulation'
-  homepage 'https://gitlab.com/B1T3X/warpd'
-  head 'https://gitlab.com/B1T3X/warpd.git', branch: 'master'
+  homepage 'https://gitlab.com/Yukaii/warpd'
+  head 'https://gitlab.com/Yukaii/warpd.git', branch: 'master'
 
   depends_on :macos
   depends_on xcode: :build
