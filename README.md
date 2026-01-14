@@ -32,3 +32,28 @@ brew install font-elffont
 ```bash
 brew install --head gitlinker
 ```
+
+### [`pnana`](https://github.com/Cyxuan0311/PNANA)
+
+Modern terminal text editor built with FTXUI.
+
+```bash
+brew install pnana
+
+# Optional features
+brew install pnana --with-lua          # Lua plugin support
+brew install pnana --with-tree-sitter  # Tree-sitter syntax highlighting
+brew install pnana --with-image-preview # FFmpeg image preview
+```
+
+## Development
+
+### Testing formulas locally before pushing
+
+When the tap is installed from GitHub, new formulas won't be recognized until pushed. To test locally, copy the formula to the installed tap location:
+
+```bash
+cp Formula/your-formula.rb /opt/homebrew/Library/Taps/yukaii/homebrew-tap/Formula/
+brew install yukaii/tap/your-formula
+brew test yukaii/tap/your-formula
+```
