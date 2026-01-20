@@ -9,8 +9,18 @@ class Warpd < Formula
   def install
     system 'make'
     bin.install 'bin/warpd'
+    (share / 'warpd').install 'bin/warpd-url-handler.app'
     man1.install 'files/warpd.1.gz'
     (prefix / 'Library/LaunchAgents').install 'files/com.warpd.warpd.plist'
+  end
+
+  def caveats
+    <<~EOS
+      To enable warpd:// deep links, register the URL handler:
+
+        /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister \
+          -f #{share}/warpd/warpd-url-handler.app
+    EOS
   end
 
   service do
