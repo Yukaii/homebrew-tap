@@ -14,12 +14,12 @@ Tmux helper for sessions, worktrees, popup, and persistent panels.
 brew install yukaii/tap/tsm
 ```
 
-### [`warpd`](https://github.com/rvaiya/warpd)
+### [`warpd`](https://github.com/Yukaii/warpd)
 
-Co-create with [GPT4-chan](https://shareg.pt/r8Sd126)
+Fork of warpd with non-Latin keyboard layout fixes and enhancements such as ripple feedback and horizontal scrolling. See [FORK_CHANGES.md](https://github.com/Yukaii/warpd/blob/master/FORK_CHANGES.md) for details.
 
 ```bash
-brew install warpd
+brew install yukaii/tap/warpd
 brew services start warpd
 ```
 
