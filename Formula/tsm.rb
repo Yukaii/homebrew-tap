@@ -10,7 +10,6 @@ class Tsm < Formula
   depends_on "tmux"
 
   def install
-    system "bash", "./scripts/build.sh", "./tsm"
     bin.install "tsm"
   end
 
