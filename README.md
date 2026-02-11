@@ -6,6 +6,14 @@ brew tap Yukaii/tap
 
 ## Available formula
 
+### [`tsm`](https://github.com/Yukaii/tsm)
+
+Tmux helper for sessions, worktrees, popup, and persistent panels.
+
+```bash
+brew install yukaii/tap/tsm
+```
+
 ### [`warpd`](https://github.com/rvaiya/warpd)
 
 Co-create with [GPT4-chan](https://shareg.pt/r8Sd126)
