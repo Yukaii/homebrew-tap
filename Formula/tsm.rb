@@ -1,8 +1,8 @@
 class Tsm < Formula
   desc "Tmux helper for sessions, worktrees, popup, and persistent panels"
   homepage "https://github.com/Yukaii/tsm"
-  url "https://github.com/Yukaii/tsm/releases/download/v0.1.4/tsm-v0.1.4.tar.gz"
-  sha256 "aec51e3c808f9fca9d0af01ea729b2afaa672d2396231de1c4f9011724de3d32"
+  url "https://github.com/Yukaii/tsm/releases/download/v0.1.5/tsm-v0.1.5.tar.gz"
+  sha256 "42eee72f511bc67897e7855ddc082041f8e3db09e28917d43a14a55acbcd5edb"
   license "MIT"
   head "https://github.com/Yukaii/tsm.git", branch: "main"
 
