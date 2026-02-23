@@ -5,6 +5,10 @@ class Bontree < Formula
   license 'MIT'
   head 'https://github.com/almonk/bontree.git', branch: 'main'
 
+  head do
+    depends_on 'go' => :build
+  end
+
   on_macos do
     on_intel do
       url "https://github.com/almonk/bontree/releases/download/v#{version}/bontree-darwin-amd64"
@@ -27,12 +31,9 @@ class Bontree < Formula
     end
   end
 
-  depends_on 'go' => :build if build.head?
-
   def install
     if build.head?
-      bin.mkpath
-      system 'go', 'build', '-o', bin / 'bontree', '.'
+      system 'go', 'build', *std_go_args(output: bin / 'bontree'), '.'
     else
       bin.install "bontree-#{OS.kernel_name.downcase}-#{Hardware::CPU.arch.to_s.gsub(/x86_64/, 'amd64')}" => 'bontree'
     end
