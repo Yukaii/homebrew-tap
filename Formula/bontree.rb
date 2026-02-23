@@ -3,9 +3,8 @@ class Bontree < Formula
   homepage 'https://github.com/almonk/bontree'
   version '0.0.6'
   license 'MIT'
-  head 'https://github.com/almonk/bontree.git', branch: 'main'
-
   head do
+    url 'https://github.com/almonk/bontree.git', branch: 'main'
     depends_on 'go' => :build
   end
 
