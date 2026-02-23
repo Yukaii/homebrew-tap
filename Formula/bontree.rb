@@ -31,6 +31,7 @@ class Bontree < Formula
 
   def install
     if build.head?
+      bin.mkpath
       system 'go', 'build', '-o', bin / 'bontree', '.'
     else
       bin.install "bontree-#{OS.kernel_name.downcase}-#{Hardware::CPU.arch.to_s.gsub(/x86_64/, 'amd64')}" => 'bontree'
