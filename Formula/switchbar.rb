@@ -5,6 +5,8 @@ class Switchbar < Formula
   version "1.0.0"
   license "MIT"
 
+  head "https://github.com/Yukaii/Switchbar.git", branch: "main"
+
   depends_on :xcode => :build
 
   def install
