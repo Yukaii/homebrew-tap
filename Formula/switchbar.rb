@@ -19,25 +19,9 @@ class Switchbar < Formula
     end
   end
 
-  def post_install
-    (prefix/"com.yukaii.switchbar.plist").write <<~PLIST
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>com.yukaii.switchbar</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/Switchbar</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-      </dict>
-      </plist>
-    PLIST
+  service do
+    run [opt_bin/"Switchbar"]
+    run_type :immediate
   end
 
   def caveats
@@ -47,8 +31,7 @@ class Switchbar < Formula
 
       To auto-start on login:
 
-        cp #{opt_prefix}/com.yukaii.switchbar.plist ~/Library/LaunchAgents/
-        launchctl load ~/Library/LaunchAgents/com.yukaii.switchbar.plist
+        brew services start yukaii/tap/switchbar
 
       Inspired by Default Browser: https://sindresorhus.com/default-browser
     EOS
