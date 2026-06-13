@@ -1,10 +1,10 @@
 class Switchbar < Formula
   desc "Quick macOS default browser switcher from the menu bar"
   homepage "https://github.com/Yukaii/Switchbar"
-  version "1.0.0"
+  version "1.0.1"
   license "MIT"
-  url "https://github.com/Yukaii/Switchbar/releases/download/v1.0.0/Switchbar-v1.0.0-arm64.tar.gz"
-  sha256 "2836d79c8f39a8d4615f41e2462a983e7f4f6b0a3cb4d171f17cdd62ddd458e2"
+  url "https://github.com/Yukaii/Switchbar/releases/download/v1.0.1/Switchbar-v1.0.1-arm64.tar.gz"
+  sha256 "dce164cf11c32d8cfd0d8f05ec8dfaf681b086078ae38b7ec532f5190968be6e"
 
   head "https://github.com/Yukaii/Switchbar.git", branch: "main"
 
