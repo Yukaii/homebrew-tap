@@ -12,7 +12,7 @@ class Switchbar < Formula
 
   def install
     if build.head?
-      system "swift", "build", "-c", "release"
+      system "swift", "build", "--disable-sandbox", "-c", "release"
       bin.install ".build/release/Switchbar"
     else
       bin.install "Switchbar"
