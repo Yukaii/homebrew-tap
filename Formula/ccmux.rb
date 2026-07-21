@@ -1,22 +1,22 @@
 class Ccmux < Formula
   desc "Monitor AI coding agent sessions running in tmux"
   homepage "https://github.com/Yukaii/ccmux"
-  version "1.1.2"
+  version "1.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/Yukaii/ccmux/releases/download/v1.1.2/ccmux-macos-arm64"
-      sha256 "a559c346b0a6bbf1b2b07ae4fdad9bde518a7a980293f10f65c8f46e71693242"
+      url "https://github.com/Yukaii/ccmux/releases/download/v1.2.0/ccmux-macos-arm64"
+      sha256 "3c2ea7b775934216349c1e24fff02634124f83f9374e60fb1c8ea1af6c86d7df"
     else
-      url "https://github.com/Yukaii/ccmux/releases/download/v1.1.2/ccmux-macos-x64"
-      sha256 "0965ac9f992ff7d180b57fef0d27009fb3d5d2e6fb1d26fba604ba09d075960b"
+      url "https://github.com/Yukaii/ccmux/releases/download/v1.2.0/ccmux-macos-x64"
+      sha256 "0260a34802dca9ecacc7e61f16e2a47b426b6597e9ddda9b0e487f932edd2ed2"
     end
   end
 
   on_linux do
-    url "https://github.com/Yukaii/ccmux/releases/download/v1.1.2/ccmux-linux-x64"
-    sha256 "8d57d552e168119319885818e0bccd311d27ff29de1a296cb031d2d32d877333"
+    url "https://github.com/Yukaii/ccmux/releases/download/v1.2.0/ccmux-linux-x64"
+    sha256 "acf2334d122cc984a4dd91609e77370a676a82e845773c2b279f785efade3e17"
   end
 
   def install
